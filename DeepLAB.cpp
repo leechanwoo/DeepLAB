@@ -13,8 +13,7 @@ m_iVolumCube(iDim1*iDim2*iDim3),
 m_iDataLength(iDim1*iDim2*iDim3),
 m_iOperationWithNext(NONE),
 m_pTNext(NULL),
-m_pTBack(NULL),
-m_iPropagation(FORWARD_PROPAGATION)
+m_pTBack(NULL)
 {
 	//cout << "constructor" << endl;
 
@@ -32,8 +31,7 @@ m_iVolumCube(tens.GetCubeSize()),
 m_iDataLength(tens.GetDataLength()),
 m_iOperationWithNext(tens.GetOperationWithNext()),
 m_pTNext(NULL),
-m_pTBack(NULL),
-m_iPropagation(FORWARD_PROPAGATION)
+m_pTBack(NULL)
 {
 	int i = tens.GetDataLength();
 
@@ -197,9 +195,16 @@ Tensor Tensor::inv()
 
 
 
-Tensor	Sigmoid( Tensor& tens )
+Tensor Tensor::Sigmoid()
 {
+	int i = GetRow();
+	Tensor Result(i, 1);
+	while( i-- )
+	{
+		Result.at(i) = 1 / (1 + pow(e, -at(i)));
+	}
 	
+	return Result;
 }
 
 Tensor& Tensor::operator = ( Tensor& tens )

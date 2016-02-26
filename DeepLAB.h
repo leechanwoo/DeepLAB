@@ -1,6 +1,8 @@
 #include <iostream>
 #include <math.h>
 
+#define		e		2.7182818284
+
 namespace DL
 {
 	enum
@@ -51,7 +53,7 @@ namespace DL
 		Tensor	inv();
 		void	I();
 		float	det();
-		Tensor	Sigmoid( Tensor& tens );
+		Tensor	Sigmoid();
 		
 		
 		
