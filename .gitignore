@@ -54,3 +54,7 @@ main.cpp
 DeepLAB.opt
 *.dsw
 *.dsp
+DeepLAB.rar
+*.bsc
+*.idb
+*.sbr
